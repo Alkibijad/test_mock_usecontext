@@ -1,0 +1,18 @@
+{
+  "feedback": [
+    {
+      "id": 1,
+      "text": "Very good host. Place is new and well decorated",
+      "rating": 10
+    },
+    {
+      "id": 2,
+      "text": "This rental is just a few steps from the beach. Just amaizing.",
+      "rating": 8
+    },
+    {
+      "text": "asdgfasdgfasdfa",
+      "id": 3
+    }
+  ]
+}
