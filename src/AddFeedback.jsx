@@ -23,7 +23,7 @@ useEffect(() => {
   };
 
   return (
-    <div>
+    <div className="form_container">
       <form >
         <textarea onChange={handleChange} ref={textarea} name="" id="" cols="30" rows="10"></textarea>
         {toEdit ?

@@ -14,8 +14,12 @@ function Feedback() {
 
           <div key={index} className="feedback_card">
             <p>{el.text}</p>
-            <DeleteFeedback id={el.id} deleteFeedback={deleteFeedback} />
-            <EditFeedback id={el.id} editFeedback={editFeedback } />
+            <div className="edit_delete_box">
+            <DeleteFeedback  id={el.id} deleteFeedback={deleteFeedback} />
+            <EditFeedback  id={el.id} editFeedback={editFeedback } />
+
+
+            </div>
           </div>
 
         );

@@ -5,6 +5,7 @@ import { FeedbackProvider } from "./dataContext";
 import FeedbackHeader from "./FeedbackHeader";
 import TotalFeedbackNum from "./TotalFeedbackNum";
 import AvarageFeedback from "./AvarageFeedback";
+import AddRating from "./AddRating";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <TotalFeedbackNum />
           <AvarageFeedback />
         </div>
+        <AddRating/>
         <AddFeedback />
       </FeedbackProvider>
     </div>

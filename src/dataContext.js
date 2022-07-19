@@ -21,6 +21,11 @@ export const FeedbackProvider = ({ children }) => {
     const newFeedback = {
       text: recievedFeedback,
     };
+    // fetch("http://localhost:5000/feedback", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(newFeedback),
+    // }).then((response) => response.json()).then((data) => { setFeedback([data, ...feedback])})
 
     const response = await fetch("http://localhost:5000/feedback", {
       method: "POST",
@@ -29,6 +34,7 @@ export const FeedbackProvider = ({ children }) => {
     });
 
     const data = await response.json();
+    console.log(data)
     setFeedback([data, ...feedback]);
   };
 
@@ -44,17 +50,14 @@ export const FeedbackProvider = ({ children }) => {
   };
 
     const saveEdit = async(text) => {
-    //OBJ ID text:  treba da zameni sa text
-        console.log(text);
-        console.log(editID);
         setToEdit(false);
 
         const response = await fetch(`http://localhost:5000/feedback/${editID}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({text: text} )
-        })
-        
+        }).then((res) => { console.log(res)})
+     
         fetchFeedback()
 
         

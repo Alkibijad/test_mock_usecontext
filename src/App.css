@@ -3,12 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-:root{
---imperial-red: #e63946ff;
---honeydew: #f1faeeff;
---powder-blue: #a8dadcff;
---celadon-blue: #457b9dff;
---prussian-blue: #1d3557ff;
+:root {
+  --imperial-red: #e63946ff;
+  --honeydew: #f1faeeff;
+  --powder-blue: #a8dadcff;
+  --celadon-blue: #457b9dff;
+  --prussian-blue: #1d3557ff;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
 }
 
 .App {
-  box-shadow: 0px 0px 10px 1px  powderblue;
+  box-shadow: 0px 0px 5px 1px powderblue;
   background-color: honeydew;
   width: 500px;
   height: 800px;
@@ -31,14 +31,12 @@ body {
 }
 
 .header_container {
-  background-color: white;
+  background-color: var(--celadon-blue);
   width: 100%;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
 .header {
   text-transform: uppercase;
@@ -46,25 +44,88 @@ body {
   letter-spacing: 1px;
   font-size: 20px;
 }
-.feedback_container{
+.feedback_container {
   width: 80%;
 }
 
 .feedback_card {
   width: 100%;
   margin: 5px auto;
-  border: 1px solid red;
-  padding: 5px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--celadon-blue);
+  padding: 0 10px;
+  border-radius: 10px;
+}
+.edit_delete_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  margin: 5px;
+}
+.btn:hover {
+  transform: scale(1.3);
+  transition: 0.5s;
+}
+.btn_delete {
+  background-color: var(--imperial-red);
+  padding: 5px 10px;
+}
+.btn_edit {
+  background-color: orange;
+  padding: 5px 10px;
 }
 
 .stats {
-  border: 1px solid red;
+  background-color: powderblue;
   width: 80%;
   margin: 5px auto;
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.form_container {
+  width: 80%;
+  margin: 0 auto;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+textarea {
+  width: 100%;
+}
+button {
+  margin: 10px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+}
+
+.rating_number_container {
+  width: 80%;
+  padding: 30px;
+}
+.numbers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rate_num {
+  background-color: var(--powder-blue);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  border-radius: 50%;
 }
