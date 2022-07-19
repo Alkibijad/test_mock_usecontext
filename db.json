@@ -1,17 +1,15 @@
 {
   "feedback": [
     {
-      "id": 1,
-      "text": "Very good host. Place is new and well decorated",
-      "rating": 10
+      "text": "fffffffffffffffffffffffff",
+      "id": 1
     },
     {
-      "id": 2,
-      "text": "This rental is just a few steps from the beach. Just amaizing.",
-      "rating": 8
+      "text": "Hello there",
+      "id": 2
     },
     {
-      "text": "asdgfasdgfasdfa",
+      "text": "This is a second feedback",
       "id": 3
     }
   ]

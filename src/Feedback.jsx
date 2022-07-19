@@ -5,7 +5,7 @@ import EditFeedback from "./EditFeedback";
 
 
 function Feedback() {
-  const {feedback, deleteFeedback} = useContext(FeedbackContext);
+  const {feedback, deleteFeedback, editFeedback} = useContext(FeedbackContext);
 
   return (
     <div className="feedback_container">
@@ -15,7 +15,7 @@ function Feedback() {
           <div key={index} className="feedback_card">
             <p>{el.text}</p>
             <DeleteFeedback id={el.id} deleteFeedback={deleteFeedback} />
-            <EditFeedback/>
+            <EditFeedback id={el.id} editFeedback={editFeedback } />
           </div>
 
         );

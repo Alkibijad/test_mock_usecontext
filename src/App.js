@@ -12,9 +12,7 @@ function App() {
     <div className="App">
       <FeedbackProvider>
         <FeedbackHeader />
-    
-          <Feedback />
-        
+          <Feedback /> 
         <div className="stats">
           <TotalFeedbackNum />
           <AvarageFeedback />

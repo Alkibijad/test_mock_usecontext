@@ -1,8 +1,8 @@
 import React from 'react'
 
-function EditFeedback() {
+function EditFeedback({ id, editFeedback }) {
   return (
-    <div>Edit</div>
+      <div onClick={() => { editFeedback(id)}}>Edit</div>
   )
 }
 

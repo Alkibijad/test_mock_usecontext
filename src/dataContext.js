@@ -4,6 +4,8 @@ const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
   const [feedback, setFeedback] = useState([]);
+  const [editID, setEditID] = useState(null);
+  const [toEdit, setToEdit] = useState(false);
 
   useEffect(() => {
     fetchFeedback();
@@ -28,21 +30,53 @@ export const FeedbackProvider = ({ children }) => {
 
     const data = await response.json();
     setFeedback([data, ...feedback]);
-    };
-    
-    const deleteFeedback = async (id) => { 
-        const response = await fetch(`http://localhost:5000/feedback${id}`, {
-            method: "DELETE"
+  };
+
+  const deleteFeedback = async (id) => {
+    const response = await fetch(`http://localhost:5000/feedback/${id}`, {
+      method: "DELETE",
+    });
+    setFeedback(feedback.filter((el) => el.id !== id));
+  };
+  const editFeedback = (id) => {
+    setEditID(id);
+    setToEdit(true);
+  };
+
+    const saveEdit = async(text) => {
+    //OBJ ID text:  treba da zameni sa text
+        console.log(text);
+        console.log(editID);
+        setToEdit(false);
+
+        const response = await fetch(`http://localhost:5000/feedback/${editID}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({text: text} )
         })
-        const data = await response.json()
+        
+        fetchFeedback()
+
+        
 
 
-        let newFeedback = feedback.filter((el) => el.id !== id)
-        setFeedback(newFeedback)
-    }
+
+
+
+  };
 
   return (
-    <FeedbackContext.Provider value={{ feedback, addFeedBack, deleteFeedback }}>
+    <FeedbackContext.Provider
+      value={{
+        feedback,
+        addFeedBack,
+        deleteFeedback,
+        editFeedback,
+        editID,
+        toEdit,
+        saveEdit,
+      }}
+    >
       {children}
     </FeedbackContext.Provider>
   );
