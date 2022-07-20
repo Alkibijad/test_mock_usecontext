@@ -1,22 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
+import FeedbackContext from "./dataContext";
 
 function AddRating() {
+  const { setRating } = useContext(FeedbackContext);
+
+  const Rating = (num) => {
+    setRating(num);
+  };
+
   return (
+    // <div className="rating_number_container">
+    //   <li className="rating">
+    //     <input type="radio" name="rating" value="1" />
+    //     <label htmlFor="">1</label>
+    //   </li>
+    //   <li className="rating">
+    //     <input type="radio" name="rating" value="1" />
+    //     <label htmlFor="">1</label>
+    //   </li>
+    // </div>
     <div className="rating_number_container">
-      <div className="numbers top_five">
-        <div className="rate_num">1</div>
-        <div className="rate_num">2</div>
-        <div className="rate_num">3</div>
-        <div className="rate_num">4</div>
-        <div className="rate_num">5</div>
-      </div>
-      <div className="numbers bottom_five">
-        <div className="rate_num">6</div>
-        <div className="rate_num">7</div>
-        <div className="rate_num">8</div>
-        <div className="rate_num">9</div>
-        <div className="rate_num">10</div>
-      </div>
+      <ul >
+      {Array.from({ length: 10 }, (_, i) => (
+        <li key={`rating-${i + 1}`} className="rating">
+          <input
+            type='radio'
+            id={`num${i + 1}`}
+            name='rating'
+            value={i + 1}
+         
+          />
+          <label htmlFor={`num${i + 1}`}>{i + 1}</label>
+        </li>
+      ))}
+    </ul>
     </div>
   );
 }

@@ -13,6 +13,7 @@ function Feedback() {
         return (
 
           <div key={index} className="feedback_card">
+            <p>R:{ el.rating}</p>
             <p>{el.text}</p>
             <div className="edit_delete_box">
             <DeleteFeedback  id={el.id} deleteFeedback={deleteFeedback} />

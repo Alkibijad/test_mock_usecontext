@@ -18,6 +18,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+li {
+  list-style: none;
+}
 
 .App {
   box-shadow: 0px 0px 5px 1px powderblue;
@@ -119,13 +122,38 @@ button {
   justify-content: center;
   align-items: center;
 }
-.rate_num {
-  background-color: var(--powder-blue);
-  width: 30px;
-  height: 30px;
+
+.rating {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(210, 210, 210);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px;
   border-radius: 50%;
+  position: relative;
+}
+.rating:hover {
+  background-color: pink;
+}
+label {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[type="radio"] {
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+}
+[type="radio"]:checked ~ label {
+  background: #ff6a95;
+  color: #fff;
 }

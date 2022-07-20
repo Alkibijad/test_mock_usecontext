@@ -6,6 +6,9 @@ export const FeedbackProvider = ({ children }) => {
   const [feedback, setFeedback] = useState([]);
   const [editID, setEditID] = useState(null);
   const [toEdit, setToEdit] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+  const [rating, setRating] = useState(10)
+
 
   useEffect(() => {
     fetchFeedback();
@@ -20,6 +23,7 @@ export const FeedbackProvider = ({ children }) => {
   const addFeedBack = async (recievedFeedback) => {
     const newFeedback = {
       text: recievedFeedback,
+      rating: rating, 
     };
     // fetch("http://localhost:5000/feedback", {
     //   method: "POST",
@@ -34,7 +38,7 @@ export const FeedbackProvider = ({ children }) => {
     });
 
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     setFeedback([data, ...feedback]);
   };
 
@@ -49,23 +53,18 @@ export const FeedbackProvider = ({ children }) => {
     setToEdit(true);
   };
 
-    const saveEdit = async(text) => {
-        setToEdit(false);
+  const saveEdit = async (text) => {
+    setToEdit(false);
 
-        const response = await fetch(`http://localhost:5000/feedback/${editID}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({text: text} )
-        }).then((res) => { console.log(res)})
-     
-        fetchFeedback()
+    const response = await fetch(`http://localhost:5000/feedback/${editID}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: text }),
+    }).then((res) => {
+      console.log(res);
+    });
 
-        
-
-
-
-
-
+    fetchFeedback();
   };
 
   return (
@@ -78,6 +77,9 @@ export const FeedbackProvider = ({ children }) => {
         editID,
         toEdit,
         saveEdit,
+        disabled,
+        setDisabled,
+        setRating,
       }}
     >
       {children}

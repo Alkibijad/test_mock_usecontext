@@ -2,9 +2,9 @@ import React, { useContext, useState, useRef, useEffect } from "react";
 import FeedbackContext from "./dataContext";
 
 function AddFeedback() {
-  const { feedback,editID,toEdit, addFeedBack, saveEdit } = useContext(FeedbackContext);
+  const { feedback,editID,toEdit, addFeedBack, saveEdit,disabled, setDisabled } = useContext(FeedbackContext);
   const [text, setText] = useState("");
-  const [Btndisabled, setBtnDisabled] = useState(true);
+  // const [disabled, setDisabled] = useState(true);
   let textarea = useRef() 
 
 useEffect(() => {
@@ -18,7 +18,7 @@ useEffect(() => {
   const handleChange = (e) => {
     if (e.target.value.length > 10) {
       setText(e.target.value);
-      setBtnDisabled(false);
+      setDisabled(false);
     }
   };
 
@@ -28,11 +28,11 @@ useEffect(() => {
         <textarea onChange={handleChange} ref={textarea} name="" id="" cols="30" rows="10"></textarea>
         {toEdit ?
           <button type="button"
-            disabled={Btndisabled}
+            disabled={disabled}
             onClick={() => { saveEdit(text); textarea.current.value = "" }} >Save Edit</button>
           :
           <button type="button"
-            disabled={Btndisabled}
+            disabled={disabled}
             onClick={() => { addFeedBack(text); }}>Submit</button>}
       </form>
     </div>
